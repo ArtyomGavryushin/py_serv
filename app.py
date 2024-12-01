@@ -85,7 +85,7 @@ def delete_task(task_id):
 @app.route("/<path:path>")
 def serve(path):
     """Служить React-приложению."""
-    if path != "" and os.path.exists(app.static_folder + "/" + path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
         return send_from_directory(app.static_folder, path)
     return send_from_directory(app.static_folder, "index.html")
 
