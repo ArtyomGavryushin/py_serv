@@ -91,19 +91,14 @@ async def delete_task(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
 def main() -> None:
     """Запуск Telegram-бота."""
-    # Ваш токен Telegram-бота
-    TOKEN = "6684296903:AAHIBTvhkJ2zZvAIYTl8n81giZISLFE-2Vo"
+    TOKEN = "#"
 
     application = ApplicationBuilder().token(TOKEN).build()
-
-    # Регистрация обработчиков команд
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("tasks", get_tasks))
     application.add_handler(CommandHandler("add", add_task))
     application.add_handler(CommandHandler("done", mark_task_done))
     application.add_handler(CommandHandler("delete", delete_task))
-
-    # Запуск бота
     application.run_polling()
 
 if __name__ == "__main__":
